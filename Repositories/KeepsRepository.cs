@@ -30,7 +30,7 @@ namespace keepr.Repositories
     //GetByUserId
     public IEnumerable<Keep> GetByUserId(int id)
     {
-      // new id object is an anonymous object and @id pulls the property off of it
+
       return _db.Query<Keep>("SELECT * FROM Keep WHERE userId = @id", new { id });
     }
 

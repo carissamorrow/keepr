@@ -22,11 +22,22 @@ namespace keepr.Controllers
     {
       return Ok(_repo.GetAll());
     }
+    [HttpGet("{id}")]
+    public ActionResult<Keep> Get(int id)
+    {
+      Keep result = _repo.GetById(id);
+      if (result != null)
+      {
+        return Ok(result);
+      }
+      return BadRequest();
+    }
 
     [HttpPost]
     public ActionResult<Keep> Post([FromBody] Keep keep)
     {
-      return _repo.AddKeep(keep);
+      Keep result = _repo.AddKeep(keep);
+      return Created("/api/keeps/" + result.Id, result);
     }
 
     [HttpDelete("{id}")]
