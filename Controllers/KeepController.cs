@@ -37,13 +37,18 @@ namespace keepr.Controllers
     public ActionResult<Keep> Post([FromBody] Keep keep)
     {
       Keep result = _repo.AddKeep(keep);
-      return Created("/api/keeps/" + result.Id, result);
+      return Created("/api/keep/" + result.Id, result);
     }
 
     [HttpDelete("{id}")]
-    public void Delete([FromRoute] int id)
+
+    public ActionResult<string> Delete(int id)
     {
-      _repo.DeleteKeep(id);
+      if (_repo.DeleteKeep(id))
+      {
+        return Ok("Successfully deleted!");
+      }
+      return BadRequest("Unable to delete!");
     }
   }
 }

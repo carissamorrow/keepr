@@ -13,9 +13,9 @@ namespace keepr.Models
     public string Name { get; set; }
     [Required]
     public string Description { get; set; }
-    public int Viewing { get; set; }
-    public int Keeping { get; set; }
-    public int Sharing { get; set; }
+    public int Views { get; set; }
+    public int Keeps { get; set; }
+    public int Shares { get; set; }
     public bool IsPrivate { get; set; }
 
   }

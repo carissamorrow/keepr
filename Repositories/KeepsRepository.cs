@@ -17,7 +17,7 @@ namespace keepr.Repositories
     //GetAll
     public IEnumerable<Keep> GetAll()
     {
-      return _db.Query<Keep>("SELECT * FROM Keep");
+      return _db.Query<Keep>("SELECT * FROM Keeps");
     }
 
     //GetById
@@ -39,23 +39,18 @@ namespace keepr.Repositories
     public Keep AddKeep(Keep newKeep)
     {
       int id = _db.ExecuteScalar<int>(@"
-      INSERT INTO Keeps(name, description, img, userId, viewing, keeping, sharing)
-      VALUES(@Name, @Description, @Img, @UserId, @Viewing, @Keeping, @Sharing);
+      INSERT INTO Keeps(name, description, img, userId, views, keeps, shares)
+      VALUES(@Name, @Description, @Img, @UserId, @Views, @Keeps, @Shares);
       SELECT LAST_INSERT_ID();
       ", newKeep);
       newKeep.Id = id;
       return newKeep;
     }
 
-    //DeleteKeep
-
     public bool DeleteKeep(int id)
     {
-      int success = _db.Execute(@"DELETE FROM Keep WHERE id = @id", new { id });
+      int success = _db.Execute(@"DELETE FROM Keeps WHERE id = @id", new { id });
       return success != 0;
-
     }
-
-
   }
 }
