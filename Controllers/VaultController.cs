@@ -17,7 +17,7 @@ namespace keepr.Controllers
     {
       _repo = repo;
     }
-
+    [Authorize]
     [HttpGet("{id}")]
     public ActionResult<Vault> Get(int id)
     {
@@ -28,14 +28,14 @@ namespace keepr.Controllers
       }
       return BadRequest();
     }
-
+    [Authorize]
     [HttpPost]
     public ActionResult<Vault> Post([FromBody] Vault vault)
     {
       Vault result = _repo.AddVault(vault);
       return Created("/api/vault/" + result.Id, result);
     }
-
+    [Authorize]
     [HttpDelete("{id}")]
 
     public ActionResult<string> Delete(int id)

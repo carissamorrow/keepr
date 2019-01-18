@@ -22,6 +22,7 @@ namespace keepr.Controllers
     {
       return Ok(_repo.GetAll());
     }
+    [Authorize]
     [HttpGet("{id}")]
 
     public ActionResult<Keep> Get(int id)
@@ -33,14 +34,14 @@ namespace keepr.Controllers
       }
       return BadRequest();
     }
-
+    [Authorize]
     [HttpPost]
     public ActionResult<Keep> Post([FromBody] Keep keep)
     {
       Keep result = _repo.AddKeep(keep);
       return Created("/api/keep/" + result.Id, result);
     }
-
+    [Authorize]
     [HttpDelete("{id}")]
 
     public ActionResult<string> Delete(int id)
