@@ -28,8 +28,7 @@ namespace keepr.Controllers
     {
       return _repo.AddKeep(keep);
     }
-    //delete
-    // [Authorize]
+
     [HttpDelete("{id}")]
     public void Delete([FromRoute] int id)
     {

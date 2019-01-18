@@ -16,9 +16,9 @@ namespace keepr.Models
     public int Viewing { get; set; }
     public int Keeping { get; set; }
     public int Sharing { get; set; }
-    // public bool IsPrivate { get; set; }
+    public bool IsPrivate { get; set; }
 
-    public Keep(string userId, string img, string name, string description, string userid, int viewing, int keeping, int sharing)
+    public Keep(string userId, string img, string name, string description, string userid, int viewing, int keeping, int sharing, bool isprivate)
     {
       UserId = userid;
       Img = img;
@@ -27,7 +27,7 @@ namespace keepr.Models
       Viewing = viewing;
       Keeping = keeping;
       Sharing = sharing;
-      // IsPrivate = isprivate;
+      IsPrivate = isprivate;
     }
   }
 }
