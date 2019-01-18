@@ -6,6 +6,7 @@ namespace keepr.Models
 {
   public class Keep
   {
+    [Required]
     public string UserId { get; set; }
     public int Id { get; set; }
     public string Img { get; set; }
