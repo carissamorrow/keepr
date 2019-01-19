@@ -19,12 +19,13 @@ namespace keepr.Controllers
 
     // GET KEEPS BY VAULTID
     [Authorize]
-    [HttpGet("{vaultId}")]
-    public VaultKeep GetKeepsByVaultId(int id)
+    [HttpGet("{id}")]
+    public IEnumerable<Keep> GetKeepsByVaultId(int id)
     {
-      SELECT* FROM vaultkeeps vk;
-      INNER JOIN keeps k ON k.id = vk.keepId
-      WHERE(vaultId = @vaultId AND vk.userId = @userId)
+      var uId = HttpContext.User.Identity.Name;
+      _repo.GetKeepsByVaultId(id, uId);
+      return new List<Keep>;
+      //return list of keeps with the userID and VaultID
     }
   }
 }
