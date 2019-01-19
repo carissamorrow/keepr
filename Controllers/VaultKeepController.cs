@@ -24,8 +24,9 @@ namespace keepr.Controllers
     {
       var uId = HttpContext.User.Identity.Name;
       _repo.GetKeepsByVaultId(id, uId);
-      return new List<Keep>;
-      //return list of keeps with the userID and VaultID
+      return new List<Keep>();
+      // return list of keeps with the userID and VaultID
     }
+
   }
 }
