@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Dapper;
@@ -52,5 +53,9 @@ namespace keepr.Repositories
       int success = _db.Execute(@"DELETE FROM Keeps WHERE id = @id", new { id });
       return success != 0;
     }
+    //public Keep EditKeep(int id, Keep keep)
+    //{
+    //what do I do here???
+    //}
   }
 }

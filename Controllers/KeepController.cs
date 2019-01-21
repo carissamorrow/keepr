@@ -54,9 +54,16 @@ namespace keepr.Controllers
       return BadRequest("Unable to delete!");
     }
     // PUT api/keep
-    [HttpPut("{id}")]
-    public void Put(int id, [FromBody] string value)
-    {
-    }
+    // [HttpPut("{id}")]
+    // public ActionResult<Keep> Put(int id, [FromBody] Keep value)
+    // {
+    //   Keep result = _repo.EditKeep(id, value);
+    //   if (result != null)
+    //   {
+    //     return result;
+    //   }
+    //   return NotFound();
+    // }
+
   }
 }
