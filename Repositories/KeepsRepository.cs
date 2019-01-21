@@ -53,9 +53,17 @@ namespace keepr.Repositories
       int success = _db.Execute(@"DELETE FROM Keeps WHERE id = @id", new { id });
       return success != 0;
     }
-    //public Keep EditKeep(int id, Keep keep)
-    //{
-    //what do I do here???
-    //}
+    public Keep GetOneByIdAndUpdate(int id, Keep newkeep)
+    {
+      {
+        return _db.QueryFirstOrDefault<Keep>($@"
+               UPDATE Keeps SET
+                   Views = @Views,
+                   Shares = @Shares,
+                   Keeps = @Keeps
+               WHERE Id = {id};
+               SELECT * FROM Keeps WHERE id = {id};", newkeep);
+      }
+    }
   }
 }
