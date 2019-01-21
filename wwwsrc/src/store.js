@@ -38,7 +38,7 @@ export default new Vuex.Store({
     setVault(state, Vault) {
       state.vaults = Vault
     },
-    setKeep(state, keep) {
+    setActiveKeep(state, keep) {
       state.activeKeep = keep
     },
     setActiveVault(state, activeVault) {
