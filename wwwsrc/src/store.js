@@ -21,6 +21,9 @@ export default new Vuex.Store({
   state: {
     user: {},
     keeps: [],
+    vaults: [],
+    activeKeep: {},
+    activeVault: [],
   },
   mutations: {
     setUser(state, user) {
@@ -32,9 +35,55 @@ export default new Vuex.Store({
     logout(state) {
       state.user = {}
     },
+    setVault(state, Vault) {
+      state.vaults = Vault
+    },
+    setKeep(state, keep) {
+      state.activeKeep = keep
+    },
+    setActiveVault(state, activeVault) {
+      state.activeVault = activeVault
+    },
   },
 
   actions: {
+
+    getKeepById({ commit, dispatch }, keepId) {
+      api.get('keep/' + keepId)
+        .then(res => {
+          commit('setKeep', res.data)
+        })
+    },
+    getVault({ commit, dispatch }) {
+      api.get('vault/')
+        .then(res => {
+          commit('setVault', res.data)
+        })
+    },
+
+    addToVault({ commit, dispatch }, payload) {
+      api.post('keep/', payload)
+        .then(res => {
+          console.log(res)
+          dispatch('getVault')
+        })
+    },
+    //get keep by Vault ID
+    getKeepsByVaultId({ commit, dispatch }, vaultId) {
+      api.get("keep/vault/" + vaultId)
+        .then(res => {
+          console.log('Keep by Vault', res.data)
+          commit('setActiveKeep', res.data)
+        })
+    },
+
+    deleteKeep({ commit, dispatch }, keepData) {
+      api.delete('keep/' + keepData._id)
+        .then(res => {
+          dispatch('getKeepsByVaultId', keepData.vaultId)
+          router.push({ name: 'vault' })
+        })
+    },
     getAllKeeps({ commit, dispatch }) {
       api.get('keep/')
         .then(res => {
@@ -75,7 +124,6 @@ export default new Vuex.Store({
     },
     logout({ commit, dispatch }) {
       auth.delete('logout')
-        // @ts-ignore
         .then(res => {
           commit('logout')
         })

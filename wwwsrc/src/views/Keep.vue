@@ -5,7 +5,7 @@
         <button v-if="keepId == userId" @click="deleteKeep(keepId)" class="btn btn-sm icon mx-2"><i class="far fa-trash-alt"></i></button>
       </div>
     </div>
-    <!-- <div class="row">
+    <div class="row">
       <div class="col-12 owner">
         <img class="image" :src="keep.img">
         <div class="col-12 visitor">
@@ -22,7 +22,7 @@
         <h4 class="mt-4">{{keep.name}}</h4>
         <h6 class="mb-5">{{keep.description}}</h6>
       </div>
-    </div> -->
+    </div>
   </div>
 
 </template>
@@ -60,7 +60,11 @@
           this.$store.dispatch('addToVault', { payload, keepId })
         }
       },
-
+      watch: {
+        keep() {
+          this.$store.dispatch('getKeepById', this.keepId)
+        }
+      }
     }
   }
 </script>
