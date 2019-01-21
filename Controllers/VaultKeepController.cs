@@ -9,23 +9,29 @@ namespace keepr.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  public class VaultKeepController : ControllerBase
+  public class VaultKeepsController : ControllerBase
   {
     private readonly VaultKeepRepository _repo;
-    public VaultKeepController(VaultKeepRepository repo)
+    public VaultKeepsController(VaultKeepRepository repo)
     {
       _repo = repo;
     }
 
     // GET KEEPS BY VAULTID
     [Authorize]
-    [HttpGet("{id}")]
-    public IEnumerable<Keep> GetKeepsByVaultId(int id)
+    [HttpGet("{vaultId}")]
+    public ActionResult<IEnumerable<VaultKeep>> GetKeepsByVaultId(int vaultId)
     {
       var uId = HttpContext.User.Identity.Name;
-      _repo.GetKeepsByVaultId(id, uId);
-      return new List<Keep>();
+      return Ok(_repo.GetKeepsByVaultId(vaultId, uId));
       // return list of keeps with the userID and VaultID
+    }
+    [HttpPost]
+    public ActionResult<VaultKeep> Post([FromBody] VaultKeep kp)
+    {
+      var uId = HttpContext.User.Identity.Name;
+      VaultKeep result = _repo.AddKeepByVaultId(kp);
+      return Created("/api/vaultkeep/" + result.Id, result);
     }
 
   }
