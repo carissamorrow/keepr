@@ -36,6 +36,7 @@ namespace keepr.Controllers
     }
     [Authorize]
     [HttpPost]
+
     public ActionResult<Keep> Post([FromBody] Keep keep)
     {
       Keep result = _repo.AddKeep(keep);
@@ -53,9 +54,9 @@ namespace keepr.Controllers
       return BadRequest("Unable to delete!");
     }
     // PUT api/keep
-    // [HttpPut("{id}")]
-    // public void Put(int id, [FromBody] string value)
-    // {
-    // }
+    [HttpPut("{id}")]
+    public void Put(int id, [FromBody] string value)
+    {
+    }
   }
 }
