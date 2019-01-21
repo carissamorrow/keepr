@@ -11,6 +11,7 @@
 --     id int NOT NULL AUTO_INCREMENT,
 --     name VARCHAR(20) NOT NULL,
 --     description VARCHAR(255) NOT NULL,
+--      isPrivate TINYINT,
 --     userId VARCHAR(255),
 --     INDEX userId (userId),
 --     FOREIGN KEY (userId)
