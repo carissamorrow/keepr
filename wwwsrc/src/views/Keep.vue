@@ -30,7 +30,7 @@
 <script>
   export default {
     name: 'keep',
-    props: ['postId'],
+    props: ['keepId'],
     data() {
       return {
         keepData: {},

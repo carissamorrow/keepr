@@ -6,6 +6,7 @@
         <li v-show="'search'.includes(filteredKeeps)"></li>
       </div>
       <div class="col-12">
+
         <h1>All Keeps Page</h1>
       </div>
     </div>
@@ -14,8 +15,9 @@
         <div v-for="keep in filteredKeeps">
           <div class="card">
             <router-link :to="{name: 'keep', params: {keepId: keep._id, keep: keep}}">
-              <img class="imgSize" :src='keep.img'>
               <p class="textSpace">{{keep.name}}</p>
+              <!-- <input class="form-control" type="text" v-model="keep.img" placeholder="Image URL"> -->
+              <img class="imgSize" :src='keep.img'>
             </router-link>
           </div>
         </div>
@@ -67,7 +69,7 @@
   }
 
   .count {
-    column-count: 5;
+    column-count: 4;
   }
 
   .card:hover {

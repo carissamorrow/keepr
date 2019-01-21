@@ -29,6 +29,9 @@ export default new Vuex.Store({
     setUser(state, user) {
       state.user = user
     },
+    setKeep(state, keep) {
+      state.activeKeep = keep
+    },
     setKeeps(state, keeps) {
       state.keeps = keeps
     },
