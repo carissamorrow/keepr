@@ -19,5 +19,12 @@ export default new Router({
       name: 'login',
       component: Login
     }
+    // {
+    //   path: '/keep/:keeoId',
+    //   name: 'keep',
+    //   component: Keep,
+    //   props: true
+    // },
+
   ]
 })
