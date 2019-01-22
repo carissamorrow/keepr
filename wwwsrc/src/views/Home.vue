@@ -5,6 +5,16 @@
         <input type="text" v-model="search" class="form-control" placeholder="Search Keeps" />
         <li v-show="'search'.includes(filteredKeeps)"></li>
       </div>
+
+      <div class="col-12">
+        <form @submit.prevent="addAKeep">
+          <input type="text" v-model="newKeep.name" placeholder="Name: " name="name">
+          <input type="text" v-model="newKeep.img" placeholder="Image: " name="img">
+          <input type="text" v-model="newKeep.description" placeholder="Description: " name="description">
+          <button type="submit">Add A New Keep</button>
+        </form>
+      </div>
+
       <div class="col-12 mb-5 mt-3">
         <h1>All Keeps Page</h1>
       </div>
@@ -33,7 +43,14 @@
     name: "home",
     data() {
       return {
-        search: ''
+        search: '',
+        keepData: {},
+
+        newKeep: {
+          name: "",
+          description: "",
+          img: ""
+        }
       }
     },
     // mounted() {
@@ -55,8 +72,11 @@
     methods: {
       setActiveKeep(k) {
         this.$store.commit('setKeep', k)
+      },
+      addAKeep() {
+        this.$store.dispatch("addAKeep", this.newKeep);
+        this.newKeep = { name: "", img: "", description: "" }
       }
-
     }
   };
 </script>

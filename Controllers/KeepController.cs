@@ -36,11 +36,16 @@ namespace keepr.Controllers
     }
     [Authorize]
     [HttpPost]
-
     public ActionResult<Keep> Post([FromBody] Keep keep)
     {
+      Console.WriteLine("what?");
+      keep.UserId = HttpContext.User.Identity.Name;
       Keep result = _repo.AddKeep(keep);
-      return Created("/api/keep/" + result.Id, result);
+      if (result != null)
+      {
+        return Ok(result);
+      }
+      return BadRequest("Unable to post");
     }
     [Authorize]
     [HttpDelete("{id}")]

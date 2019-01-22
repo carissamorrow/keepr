@@ -71,6 +71,12 @@ export default new Vuex.Store({
           dispatch('getVault')
         })
     },
+    addAKeep({ commit, dispatch }, keepData) {
+      api.post('keep/', keepData)
+        .then(res => {
+          dispatch('getAllKeeps')
+        })
+    },
     //get keep by Vault ID
     getKeepsByVaultId({ commit, dispatch }, vaultId) {
       api.get("keep/vault/" + vaultId)

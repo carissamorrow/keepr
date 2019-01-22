@@ -13,7 +13,8 @@
     </div>
     <div class="row">
       <div class="col-12 m-1">
-        <button v-if="keep.user == user.id" @click="deleteKeep(keepId)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button>
+        <!-- how do i delete only by userId? -->
+        <button v-if="user.id == user.id" @click="deleteKeep(keepId)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button>
       </div>
     </div>
     <div class="row">
@@ -41,12 +42,12 @@
     data() {
       return {
         keepData: {},
-        edit: false
       }
     },
     computed: {
       keep() {
         return this.$store.state.keeps.find(k => k.id == this.$route.params.keepId) || {}
+        // thanks for your help on this one Mark 
       },
       vaults() {
         return this.$store.state.vaults
