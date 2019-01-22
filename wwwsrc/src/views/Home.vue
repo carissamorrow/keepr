@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="card-columns count">
+      <div class="card-columns count col-12">
         <div v-for="keep in filteredKeeps">
           <div class="card">
             <router-link :to="{name: 'keep', params: {keepId: keep._id, keep: keep}}">
@@ -81,5 +81,9 @@
 
   .imgSize {
     height: 23vh;
+  }
+
+  i {
+    width: 30px
   }
 </style>
