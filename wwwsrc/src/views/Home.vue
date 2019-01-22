@@ -41,12 +41,6 @@
     //   if (!this.$store.state.user.id) {
     //     this.$router.push({ name: "login" });
     //   }
-    logout() {
-      this.$store.dispatch("logout")
-    },
-    login() {
-      this.$store.dispatch("login")
-    },
 
     computed: {
       keeps() {

@@ -45,8 +45,11 @@
     },
     methods: {
       logout() {
-        Console.log("write the logout")
-      }
+        this.$store.dispatch("logout")
+      },
+      login() {
+        this.$store.dispatch("login")
+      },
     }
   }
 </script>
