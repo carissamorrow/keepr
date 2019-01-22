@@ -129,7 +129,7 @@ export default new Vuex.Store({
       auth.delete('logout')
         .then(res => {
           commit('logout')
-          router.push({ name: 'home' })
+          // router.push({ name: 'home' })
         })
     }
   }

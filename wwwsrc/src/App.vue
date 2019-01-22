@@ -15,10 +15,10 @@
             <a class="nav-link" href="#/userDash">UserDash</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Login/Register</a>
+            <a class="nav-link" href="#/login">Login/Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Logout</a>
+            <a class="nav-link" href="#/login">Logout</a>
           </li>
         </ul>
       </div>
