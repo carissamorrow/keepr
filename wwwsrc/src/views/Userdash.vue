@@ -1,6 +1,6 @@
 <template>
-  <div class="userDash">
-
+  <div class="userDash container">
+    <h1 class="mgBottom">Welcome {{user.name}} to your Dashboard</h1>
   </div>
 </template>
 

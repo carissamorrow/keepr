@@ -7,9 +7,12 @@
     </div>
     <div class="row">
       <div class="col-12 owner">
-        <h4 class="mt-4">{{keep.name}}</h4>
-        <h6 class="mb-5">{{keep.description}}</h6>
+        <p class="textSpace mt-3">{{keep.name}}</p>
+        <p class="textSpace">{{keep.description}}</p>
         <img class="imgSize mb-2" :src="keep.img">
+        <p><i class="far fa-eye">{{keeps.views}}</i>
+          <i class="fas fa-share">{{keeps.shares}}</i>
+          <i class="fas fa-shopping-basket">{{keeps.keeps}}</i></p>
       </div>
     </div>
     <div class="row"></div>

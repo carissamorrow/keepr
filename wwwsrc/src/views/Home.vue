@@ -65,6 +65,7 @@
       setActiveKeep(k) {
         this.$store.commit('setKeep', k)
       }
+
     }
   };
 </script>
