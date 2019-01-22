@@ -7,22 +7,24 @@
     </div>
     <div class="row">
       <div class="col-12 owner">
-        <img class="image" :src="keep.img">
-        <div class="col-12 visitor">
-          <div class="dropdown" v-if="!keep.isVault">
-            <button class="btn btn-sm dropdown-toggle icon" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false"><i class="fas fa-plus-circle"> </i> Add Keep to Vault
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <p class="dropdown-item action" v-for="vault in vaults" @click="addToVault(vaultId)" :vaultData="vault"
-                v-bind:value="vaultId">{{vault.name}}</p>
-            </div>
-          </div>
-        </div>
         <h4 class="mt-4">{{keep.name}}</h4>
         <h6 class="mb-5">{{keep.description}}</h6>
+        <img class="imgSize mb-2" :src="keep.img">
       </div>
     </div>
+    <div class="row"></div>
+    <div class="col-12 visitor">
+      <div class="dropdown" v-if="!keep.isVault">
+        <button class="btn btn-sm dropdown-toggle icon" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false"><i class="fas fa-plus-circle"> </i> Add Keep to Vault
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <p class="dropdown-item action" v-for="vault in vaults" @click="addToVault(vaultId)" :vaultData="vault"
+            v-bind:value="vaultId">{{vault.name}}</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </template>
@@ -70,6 +72,7 @@
 </script>
 
 <style>
-
-
+  .owner {
+    width: 60%;
+  }
 </style>

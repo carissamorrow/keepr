@@ -5,8 +5,7 @@
         <input type="text" v-model="search" class="form-control" placeholder="Search Keeps" />
         <li v-show="'search'.includes(filteredKeeps)"></li>
       </div>
-      <div class="col-12">
-
+      <div class="col-12 mb-5 mt-3">
         <h1>All Keeps Page</h1>
       </div>
     </div>
@@ -15,9 +14,12 @@
         <div v-for="keep in filteredKeeps">
           <div class="card">
             <router-link :to="{name: 'keep', params: {keepId: keep._id, keep: keep}}">
-              <p class="textSpace">{{keep.name}}</p>
-              <!-- <input class="form-control" type="text" v-model="keep.img" placeholder="Image URL"> -->
-              <img class="imgSize" :src='keep.img'>
+              <p class="textSpace mt-3">{{keep.name}}</p>
+              <p class="textSpace">{{keep.description}}</p>
+              <img class="imgSize mb-2" :src="keep.img">
+              <p><i class="far fa-eye"></i>
+                <i class="fas fa-share"></i>
+                <i class="fas fa-shopping-basket"></i></p>
             </router-link>
           </div>
         </div>
@@ -64,15 +66,20 @@
 </script>
 
 <style scoped>
-  .home {
-    background-color: lightblue;
-  }
-
   .count {
+    margin-top: 5px;
     column-count: 4;
   }
 
   .card:hover {
     transform: scale(1.1);
+  }
+
+  .card {
+    height: 40vh;
+  }
+
+  .imgSize {
+    height: 23vh;
   }
 </style>

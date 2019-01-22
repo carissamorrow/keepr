@@ -1,6 +1,34 @@
 <template>
   <div id="app">
+    <div class="navigationbar">
+      <nav class="navbar navbar-expand-lg navbar-light primary">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">User Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href='#'>Logout</a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+          </span>
+        </div>
+      </nav>
+    </div>
     <router-view />
+  </div>
   </div>
 </template>
 
@@ -24,5 +52,14 @@
 
   #nav a.router-link-exact-active {
     color: #42b983;
+  }
+
+  body {
+    background-color: lightblue
+  }
+
+  .navigationbar {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
   }
 </style>
