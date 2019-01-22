@@ -26,14 +26,14 @@ namespace keepr.Repositories
     public Keep GetById(int id)
     {
       return _db.QueryFirstOrDefault<Keep>($"SELECT * FROM Keeps WHERE id = @id", new { id });
-      //had as select from Keep. should be keep or keeps? keep gives error
+      //had as select from Keep. should be keep or keeps? 
     }
 
     //GetByUserId
     public IEnumerable<Keep> GetByUserId(int id)
     {
 
-      return _db.Query<Keep>("SELECT * FROM Keep WHERE userId = @id", new { id });
+      return _db.Query<Keep>("SELECT * FROM Keeps WHERE userId = @id", new { id });
     }
 
 
