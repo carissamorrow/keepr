@@ -13,14 +13,12 @@
     </div>
     <div class="row">
       <div class="col-12 m-1">
-        <!-- how do i delete only by userId? -->
-        <button v-if="user.id == user.id" @click="deleteKeep(keepId)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button>
+        <button v-if="keep.userId == user.id" @click="deleteKeep(keepId)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button>
       </div>
     </div>
     <div class="row">
-      <div class="col-12 visitor">
-        <div class="dropdown">
-          <!-- v-if="!keep.vault" -->
+      <div class="col-12">
+        <div class="dropdown" v-if="!keep.vault">
           <button class="btn btn-sm dropdown-toggle icon" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false"><i class="fas fa-plus-circle"> </i> Add Keep to Vault
           </button>
