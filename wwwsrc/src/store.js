@@ -87,7 +87,7 @@ export default new Vuex.Store({
         })
     },
     addAVault({ commit, dispatch }, vaultData) {
-      api.post('vault/vaultId', vaultData)
+      api.post('vault/', vaultData)
         .then(res => {
           dispatch('getAllVaults')
         })

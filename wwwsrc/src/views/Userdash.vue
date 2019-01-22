@@ -13,7 +13,7 @@
         <h1>All Vaults Page</h1>
       </div>
       <div class="row">
-        <div class="card col-12">
+        <div v-for="vault in vaults" class="card">
           <router-link :to="{name: 'vault', params: {vaultId: vault.id}}">
             <p class="textSpace mt-3">{{vault.name}}</p>
             <p class="textSpace">{{vault.description}}</p>

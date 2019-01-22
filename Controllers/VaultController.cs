@@ -17,6 +17,12 @@ namespace keepr.Controllers
     {
       _repo = repo;
     }
+    [HttpGet]
+    public ActionResult<IEnumerable<Vault>> Get()
+    {
+      return Ok(_repo.GetAll());
+    }
+
     [Authorize]
     [HttpGet("{id}")]
     public ActionResult<Vault> Get(int id)
