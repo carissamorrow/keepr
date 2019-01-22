@@ -40,17 +40,17 @@ namespace keepr.Controllers
       }
       return BadRequest("Unable to post");
     }
-  }
-  [Authorize]
-  [HttpDelete("{id}")]
 
-  public ActionResult<string> Delete(int id)
-  {
-    if (_repo.DeleteVault(id))
+    [Authorize]
+    [HttpDelete("{id}")]
+
+    public ActionResult<string> Delete(int id)
     {
-      return Ok("Successfully deleted!");
+      if (_repo.DeleteVault(id))
+      {
+        return Ok("Successfully deleted!");
+      }
+      return BadRequest("Unable to delete!");
     }
-    return BadRequest("Unable to delete!");
   }
-}
 }
