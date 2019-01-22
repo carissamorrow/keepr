@@ -9,7 +9,7 @@ import Keep from './views/Keep.vue'
 // @ts-ignore
 import Vault from './views/Vault.vue'
 // @ts-ignore
-// import UserDash from './views/userDash.vue'
+import userdash from './views/userdash.vue'
 
 Vue.use(Router)
 
@@ -26,7 +26,7 @@ export default new Router({
       component: Login
     },
     {
-      path: '/keep/keepId',
+      path: '/keep/:keepId',
       name: 'keep',
       component: Keep,
       props: true
@@ -37,11 +37,11 @@ export default new Router({
       component: Vault,
       props: true
     },
-    // {
-    //   path: '/userDash',
-    //   name: 'userDash',
-    //   component: UserDash
-    // },
-
+    {
+      path: '/userDash',
+      name: 'userDash',
+      component: userdash,
+      props: true
+    },
   ]
 })

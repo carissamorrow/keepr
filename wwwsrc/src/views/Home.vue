@@ -13,7 +13,7 @@
       <div class="card-columns count col-12">
         <div v-for="keep in filteredKeeps">
           <div class="card">
-            <router-link :to="{name: 'keep', params: {keepId: keep._id, keep: keep}}">
+            <router-link :to="{name: 'keep', params: {keepId: keep.id}}">
               <p class="textSpace mt-3">{{keep.name}}</p>
               <p class="textSpace">{{keep.description}}</p>
               <img class="imgSize mb-2" :src="keep.img">
@@ -41,9 +41,6 @@
     //   if (!this.$store.state.user.id) {
     //     this.$router.push({ name: "login" });
     //   }
-    mounted() {
-      this.$store.dispatch("getAllKeeps")
-    },
     logout() {
       this.$store.dispatch("logout")
     },
