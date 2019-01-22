@@ -17,11 +17,37 @@
     name: 'postKeep',
     data() {
       return {
-
+        selectedVault: {},
+        vaultData: {
+          name: '',
+          description: ''
+        }
       }
     },
-    computed: {},
-    methods: {}
+    computed: {
+      vaults() {
+        return this.$store.state.vaults
+      },
+      user() {
+        return this.$store.state.user
+      }
+    },
+
+    methods: {
+      setActiveVault(vault) {
+        this.$store.commit('setActiveVault', vault)
+      },
+      createKeep() {
+        this.vaultData.creatorName = this.user.name
+        this.vaultData.vaultName = this.selectedVault.name
+        this.vaultData.vaultId = this.selectedVault.id
+        this.$store.dispatch('createKeep', this.vaultData)
+        this.vaultData = {
+          name: '',
+          description: ''
+        }
+      },
+    }
   }
 
 </script>
