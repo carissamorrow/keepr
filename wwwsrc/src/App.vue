@@ -1,29 +1,28 @@
 <template>
   <div id="app">
-    <div id="nav" class="mb-5">
-      <nav class="navbar navbar-expand-lg navbar-light primary">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              <a class="nav-link" href="#/userDash" v-if="userId">UserDash</a>
-              <a class="nav-link" href="#" @click="logout" v-if="!userId"></a>
-            </li>
-          </ul>
-        </div>
-        <ul class="navbar-nav mr-auto px-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+      <a class="navbar-brand" href="#">Keepr</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" v-if="!userId">Login/Register</a>
-            <a class="nav-link" href="#" @click="logout" v-if="userId">Logout</a>
+            <a class="nav-link" href="#/userDash">UserDash</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login/Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
           </li>
         </ul>
-      </nav>
-    </div>
+      </div>
+    </nav>
     <router-view />
   </div>
 </template>
