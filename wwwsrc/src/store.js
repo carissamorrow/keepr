@@ -81,7 +81,6 @@ export default new Vuex.Store({
     },
 
     deleteKeep({ commit, dispatch }, keepData) {
-      debugger
       api.delete('keep/' + keepData.id)
         .then(res => {
           dispatch('getKeepsByVaultId', keepData.vaultId)
@@ -110,7 +109,7 @@ export default new Vuex.Store({
       auth.get('authenticate')
         .then(res => {
           commit('setUser', res.data)
-          router.push({ name: 'home' })
+          // router.push({ name: 'home' })
         })
         .catch(e => {
           console.log('not authenticated')

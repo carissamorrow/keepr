@@ -15,10 +15,9 @@
             <a class="nav-link" href="#/userDash">UserDash</a>
           </li>
           <li class="nav-item">
+            {{user}}
             <a class="nav-link" href="#/login" v-if="!user.id">Login/Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#/login" v-if="user.id">Logout</a>
+            <a class="nav-link" @click="logout" href="#/login" v-else>Logout</a>
           </li>
         </ul>
       </div>
