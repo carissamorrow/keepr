@@ -37,6 +37,7 @@ export default new Router({
       component: Vault,
       props: true
     },
+
     {
       path: '/userDash',
       name: 'userDash',

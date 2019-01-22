@@ -38,7 +38,6 @@ namespace keepr.Controllers
     [HttpPost]
     public ActionResult<Keep> Post([FromBody] Keep keep)
     {
-      Console.WriteLine("what?");
       keep.UserId = HttpContext.User.Identity.Name;
       Keep result = _repo.AddKeep(keep);
       if (result != null)

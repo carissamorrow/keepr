@@ -32,19 +32,25 @@ namespace keepr.Controllers
     [HttpPost]
     public ActionResult<Vault> Post([FromBody] Vault vault)
     {
+      vault.UserId = HttpContext.User.Identity.Name;
       Vault result = _repo.AddVault(vault);
-      return Created("/api/vault/" + result.Id, result);
-    }
-    [Authorize]
-    [HttpDelete("{id}")]
-
-    public ActionResult<string> Delete(int id)
-    {
-      if (_repo.DeleteVault(id))
+      if (result != null)
       {
-        return Ok("Successfully deleted!");
+        return Ok(result);
       }
-      return BadRequest("Unable to delete!");
+      return BadRequest("Unable to post");
     }
   }
+  [Authorize]
+  [HttpDelete("{id}")]
+
+  public ActionResult<string> Delete(int id)
+  {
+    if (_repo.DeleteVault(id))
+    {
+      return Ok("Successfully deleted!");
+    }
+    return BadRequest("Unable to delete!");
+  }
+}
 }

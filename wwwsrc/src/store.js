@@ -41,6 +41,9 @@ export default new Vuex.Store({
     setVault(state, Vault) {
       state.vaults = Vault
     },
+    setVaults(state, Vault) {
+      state.vaults = Vault
+    },
     setActiveKeep(state, keep) {
       state.activeKeep = keep
     },
@@ -63,6 +66,12 @@ export default new Vuex.Store({
           commit('setVault', res.data)
         })
     },
+    // getAllVaultsByUserId({ commit, dispatch }) {
+    //   api.get('vault/' + userId)
+    //     .then(res => {
+    //     commit('showVaults', res.data)
+    //   })
+    // },
 
     addToVault({ commit, dispatch }, payload) {
       api.post('keep/', payload)
@@ -75,6 +84,12 @@ export default new Vuex.Store({
       api.post('keep/', keepData)
         .then(res => {
           dispatch('getAllKeeps')
+        })
+    },
+    addAVault({ commit, dispatch }, vaultData) {
+      api.post('vault/vaultId', vaultData)
+        .then(res => {
+          dispatch('getAllVaults')
         })
     },
     //get keep by Vault ID
@@ -100,6 +115,14 @@ export default new Vuex.Store({
           commit('setKeeps', res.data)
         })
     },
+    getAllVaults({ commit, dispatch }) {
+      api.get('vault/')
+        .then(res => {
+          console.log(res)
+          commit('setVaults', res.data)
+        })
+    },
+
 
     register({ commit, dispatch }, newUser) {
       auth.post('register', newUser)
