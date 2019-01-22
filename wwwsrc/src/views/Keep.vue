@@ -6,9 +6,9 @@
         <p class="textSpace mt-3">{{keep.name}}</p>
         <p class="textSpace">{{keep.description}}</p>
         <img class="imgSize mb-2" :src="keep.img">
-        <p><i class="far fa-eye">{{keep.views}}</i>
-          <i class="fas fa-share">{{keep.shares}}</i>
-          <i class="fas fa-shopping-basket">{{keep.keeps}}</i></p>
+        <p><i class="i far fa-eye">{{keep.views}}</i>
+          <i class="i fas fa-share">{{keep.shares}}</i>
+          <i class="i fas fa-shopping-basket">{{keep.keeps}}</i></p>
       </div>
     </div>
     <div class="row">
@@ -78,5 +78,13 @@
 <style>
   .owner {
     width: 60%;
+  }
+
+  .imgSize {
+    height: 40vh;
+  }
+
+  .i {
+    width: 40px
   }
 </style>

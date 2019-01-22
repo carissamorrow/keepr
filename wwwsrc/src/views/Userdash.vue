@@ -47,6 +47,11 @@
         this.$store.dispatch("addAVault", this.newVault);
         this.newVault = { name: "", description: "" }
       }
+    },
+    mounted() {
+      if (!this.vaults.length) {
+        this.$store.dispatch('getAllVaults', this.vaults)
+      }
     }
   }
 
