@@ -15,10 +15,10 @@
             <a class="nav-link" href="#/userDash">UserDash</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#/login">Login/Register</a>
+            <a class="nav-link" href="#/login" v-if="!user.id">Login/Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#/login">Logout</a>
+            <a class="nav-link" href="#/login" v-if="user.id">Logout</a>
           </li>
         </ul>
       </div>
@@ -39,8 +39,8 @@
       this.$store.dispatch("getAllKeeps")
     },
     computed: {
-      userId() {
-        return this.$store.state.user.id
+      user() {
+        return this.$store.state.user
       }
     },
     methods: {

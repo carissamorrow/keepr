@@ -25,7 +25,8 @@ namespace keepr.Repositories
 
     public Keep GetById(int id)
     {
-      return _db.QueryFirstOrDefault<Keep>($"SELECT * FROM Keep WHERE id = @id", new { id });
+      return _db.QueryFirstOrDefault<Keep>($"SELECT * FROM Keeps WHERE id = @id", new { id });
+      //had as select from Keep. should be keep or keeps? keep gives error
     }
 
     //GetByUserId
