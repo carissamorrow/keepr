@@ -17,9 +17,9 @@
               <p class="textSpace mt-3">{{keep.name}}</p>
               <p class="textSpace">{{keep.description}}</p>
               <img class="imgSize mb-2" :src="keep.img">
-              <p><i class="far fa-eye"></i>
-                <i class="fas fa-share"></i>
-                <i class="fas fa-shopping-basket"></i></p>
+              <p><i class="far fa-eye">{{keeps.views}}</i>
+                <i class="fas fa-share">{{keeps.shares}}</i>
+                <i class="fas fa-shopping-basket">{{keeps.keeps}}</i></p>
             </router-link>
           </div>
         </div>
@@ -47,6 +47,10 @@
     logout() {
       this.$store.dispatch("logout")
     },
+    login() {
+      this.$store.dispatch("login")
+    },
+
     computed: {
       keeps() {
         return this.$store.state.keeps

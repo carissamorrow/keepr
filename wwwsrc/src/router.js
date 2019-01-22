@@ -8,6 +8,8 @@ import Login from './views/Login.vue'
 import Keep from './views/Keep.vue'
 // @ts-ignore
 import Vault from './views/Vault.vue'
+// @ts-ignore
+// import UserDash from './views/UserDash.vue'
 
 Vue.use(Router)
 
@@ -35,6 +37,11 @@ export default new Router({
       component: Vault,
       props: true
     },
+    //{
+    //   path: '/userDash',
+    //   name: 'userDash',
+    //   component: UserDash
+    // },
 
   ]
 })

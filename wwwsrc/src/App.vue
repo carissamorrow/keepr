@@ -13,21 +13,23 @@
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">User Dashboard</a>
+              <a class="nav-link" href="#" v-if="user.id">UserDash</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href='#'>Logout</a>
-            </li>
-          </ul>
-          <span class="navbar-text">
-          </span>
+            <ul class="navbar-nav mr-auto px-3">
+              <li class="nav-item">
+                <a class="nav-link" href="#" v-if="!user.id">Login/Register</a>
+                <a class="nav-link" href="#" @click="logout" v-if="user.id">Logout</a>
+              </li>
+            </ul>
         </div>
-      </nav>
     </div>
-    <router-view />
+    </ul>
+    <span class="navbar-text">
+    </span>
+  </div>
+  </nav>
+  </div>
+  <router-view />
   </div>
   </div>
 </template>
