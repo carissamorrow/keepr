@@ -10,10 +10,10 @@
         </form>
       </div>
       <div class="col-12 mb-5 mt-3">
-        <h1>All Vaults Page</h1>
+        <h1>All Your Vaults</h1>
       </div>
       <div class="row">
-        <div v-for="vault in vaults" class="card">
+        <div v-for="vault in vaults" class="card count col-4">
           <router-link :to="{name: 'vault', params: {vaultId: vault.id}}">
             <p class="textSpace mt-3">{{vault.name}}</p>
             <p class="textSpace">{{vault.description}}</p>
@@ -53,6 +53,16 @@
 </script>
 
 <style>
+  .count {
+    margin-top: 5px;
+    column-count: 4;
+  }
 
+  .card:hover {
+    transform: scale(1.1);
+  }
 
+  .card {
+    height: 40vh;
+  }
 </style>
