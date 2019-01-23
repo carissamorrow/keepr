@@ -9,7 +9,9 @@
           <p><i class="i far fa-eye">{{keep.views}}</i>
             <i class="i fas fa-share">{{keep.shares}}</i>
             <i class="i fas fa-shopping-basket">{{keep.keeps}}</i></p>
-          <button type="remove" class="btn btn-primary btn-lg">Remove Keep from Vault</button>
+          <div class="col-12">
+            <!-- <button @click="removeKeepFromVault(vault.id, keep.id)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button> -->
+          </div>
         </div>
       </div>
     </div>
