@@ -66,7 +66,6 @@
         let payload = {
           keepId: this.keepId,
           keepData: this.keep
-
         }
         console.log(payload)
         this.$store.dispatch('addToVault', { payload, keepId })

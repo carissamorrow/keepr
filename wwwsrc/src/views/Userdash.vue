@@ -1,5 +1,5 @@
 <template>
-  <div class="userDash container">
+  <div class="vault container">
     <h1 class="mgBottom">Welcome {{user.username}}...You look lovely today</h1>
     <div class="row">
       <div class="col-12">
@@ -20,7 +20,7 @@
             <img class="image1" src="http://www.hiseedschools.com/images/albums.png">
           </router-link>
           <div class="col-12">
-            <button v-if="vault.userId == user.id" @click="deleteVault(vaultId)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button>
+            <button v-if="vault.userId == user.id" @click="deleteVault(vault.id)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button>
           </div>
         </div>
       </div>
@@ -30,7 +30,7 @@
 
 <script>
   export default {
-    name: 'userDash',
+    name: 'vault',
     data() {
       return {
         vaultData: {},
@@ -58,8 +58,8 @@
         this.newVault = { name: "", description: "" }
 
       },
-      deleteVault() {
-        this.$store.dispatch('deleteVault', this.vaultId)
+      deleteVault(vault) {
+        this.$store.dispatch('deleteVault', vault)
       },
     },
     mounted() {
