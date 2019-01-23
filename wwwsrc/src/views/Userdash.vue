@@ -1,6 +1,6 @@
 <template>
   <div class="userDash container">
-    <h1 class="mgBottom">Welcome to your Dashboard</h1>
+    <h1 class="mgBottom">Welcome {{user.username}}...You look lovely today</h1>
     <div class="row">
       <div class="col-12">
         <form @submit.prevent="addAVault">
@@ -37,7 +37,7 @@
     data() {
       return {
         vaultData: {},
-        vault: [],
+        // vault: [],
         newVault: {
           name: "",
           description: ""
@@ -45,6 +45,9 @@
       }
     },
     computed: {
+      vault() {
+        return this.$store.state.vaults.find(v => v.id == this.$route.params.vaultId) || {}
+      },
       vaults() {
         return this.$store.state.vaults
       },
@@ -56,6 +59,7 @@
       addAVault() {
         this.$store.dispatch("addAVault", this.newVault);
         this.newVault = { name: "", description: "" }
+
       },
       deleteVault() {
         this.$store.dispatch('deleteVault', this.vault)

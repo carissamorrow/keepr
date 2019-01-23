@@ -32,7 +32,7 @@ export default new Router({
       props: true
     },
     {
-      path: '/vault/vaultId',
+      path: '/vault/:vaultId',
       name: 'vault',
       component: Vault,
       props: true
