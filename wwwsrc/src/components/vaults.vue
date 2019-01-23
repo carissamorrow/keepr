@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="row">
 
     <div v-for="vault in vaults" @click="setActiveVault(vault)" class="col-3" :key="vault.id">
@@ -48,4 +48,4 @@
     background-color: rgba(240, 248, 255, 0);
     border-color: rgba(240, 248, 255, 0);
   }
-</style>
+</style> -->

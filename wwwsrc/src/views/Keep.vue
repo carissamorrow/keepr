@@ -46,6 +46,10 @@
       keep() {
         return this.$store.state.keeps.find(k => k.id == this.$route.params.keepId) || {}
         // thanks for your help on this one Mark 
+        if (keep) {
+          keep.views++
+          this.$store.dispatch("updateAKeep", keep)
+        }
       },
       vaults() {
         return this.$store.state.vaults
@@ -58,13 +62,17 @@
       deleteKeep() {
         this.$store.dispatch('deleteKeep', this.keep)
       },
-      addToVault(keepId) {
+      addToVault(keepId, keep) {
         let payload = {
           keepId: this.keepId,
           keepData: this.keep
+
         }
         console.log(payload)
         this.$store.dispatch('addToVault', { payload, keepId })
+        keep.keeps++
+        this.$store.dispatch("updateAKeep", keep)
+        //finish store 
       }
     },
     watch: {

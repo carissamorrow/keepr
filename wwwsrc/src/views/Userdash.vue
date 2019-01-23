@@ -24,8 +24,6 @@
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
 </template>
@@ -33,7 +31,6 @@
 <script>
   export default {
     name: 'userDash',
-    props: ['vaultId'],
     data() {
       return {
         vaultData: {},
@@ -46,7 +43,7 @@
     },
     computed: {
       vault() {
-        return this.$store.state.vaults.find(v => v.id == this.$route.params.vaultId) || {}
+        return this.$store.state.vaults
       },
       vaults() {
         return this.$store.state.vaults
@@ -62,17 +59,12 @@
 
       },
       deleteVault() {
-        this.$store.dispatch('deleteVault', this.vault)
+        this.$store.dispatch('deleteVault', this.vaultId)
       },
     },
     mounted() {
       if (!this.vaults.length) {
         this.$store.dispatch('getAllVaults', this.vaults)
-      }
-    },
-    watch: {
-      vault() {
-        this.$store.dispatch('getVault', this.vaultId)
       }
     }
   }
