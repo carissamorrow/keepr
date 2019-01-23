@@ -2,12 +2,11 @@
   <div class="vaultKeep container">
     <div class="row">
       <div class="col">
-        <div v-for="vaultKeep in vaultKeeps" class="card count col-4">
+        {{vaultKeeps}}
+        <div v-for="activeKeep in vaultKeeps" class="card count col-4">
           <!-- this should show all of the vaultKeeps (keeps added to this vault ) -->
-          <router-link :to="{name: 'vaultKeep', params: {vaultId: vault.id}}">
-            <p class="textSpace mt-3">{{keep.name}}</p>
-            <p class="textSpace">{{keep.description}}</p>
-          </router-link>
+          <p class="textSpace mt-3">{{keep.name}}</p>
+          <p class="textSpace">{{keep.description}}</p>
         </div>
       </div>
     </div>
@@ -17,9 +16,12 @@
 <script>
   export default {
     name: 'vaultKeep',
+    props: ["vaultId"],
+    mounted() {
+      this.$store.dispatch("getKeepsByVaultId", this.vaultId)
+    },
     data() {
       return {
-
 
       }
     },
@@ -29,9 +31,6 @@
       }
     },
     methods: {
-      getKeepsByVaultId() {
-        this.$store.dispatch("getKeepsByVaultId", vaultId)
-      }
     }
   }
 
