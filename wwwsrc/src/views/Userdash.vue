@@ -61,6 +61,9 @@
       deleteVault(vault) {
         this.$store.dispatch('deleteVault', vault)
       },
+      addToVault() {
+        this.$store.dispatch("addToVault", this.keep)
+      }
     },
     mounted() {
       if (!this.vaults.length) {

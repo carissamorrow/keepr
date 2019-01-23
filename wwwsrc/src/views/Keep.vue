@@ -24,7 +24,7 @@
       <div class="dropdown">
         <div class="dropdown-menu">
           <div class="dropdown-item" aria-labelledby="mLabel" v-for="vault in vaults" :key="vault.id">
-            <p @click="addToVault(keep, vault.id)">{{vault.name}}</p>
+            <p @click="addToVault(vault.id)">{{vault.name}}</p>
           </div>
         </div>
       </div>
@@ -47,10 +47,10 @@
       keep() {
         return this.$store.state.keeps.find(k => k.id == this.$route.params.keepId) || {}
         // thanks for your help on this one Mark 
-        if (keep) {
-          keep.views++
-          this.$store.dispatch("updateAKeep", keep)
-        }
+        // if (keep) {
+        //   keep.views++
+        //   this.$store.dispatch("updateAKeep", keep)
+        // }
       },
       vaults() {
         return this.$store.state.vaults
@@ -70,8 +70,8 @@
         }
         console.log(payload)
         this.$store.dispatch('addToVault', { payload, keepId })
-        keep.keeps++
-        this.$store.dispatch("updateAKeep", keep)
+        // keep.keeps++
+        // this.$store.dispatch("updateAKeep", keep)
         //finish in the store 
       }
     },
