@@ -16,15 +16,15 @@
         <button v-if="keep.userId == user.id" @click="deleteKeep(keepId)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="dropdown" v-if="!keep.vault">
-          <button class="btn btn-sm dropdown-toggle icon" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false"><i class="fas fa-plus-circle"> </i> Add Keep to Vault
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <p class="dropdown-item action" v-for="vault in vaults" @click="addToVault(vault.id)" :vaultData="vault"
-              v-bind:value="vault.id">{{vault.name}}</p>
+
+    <div class="dropdown">
+      <button id="mLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-info">
+        Add To Vault <i class="fas fa-caret-square-down"></i>
+      </button>
+      <div class="dropdown">
+        <div class="dropdown-menu">
+          <div class="dropdown-item" aria-labelledby="mLabel" v-for="vault in vaults" :key="vault.id">
+            <p @click="addToVault(keep, vault.id)">{{vault.name}}</p>
           </div>
         </div>
       </div>
@@ -42,6 +42,7 @@
         keepData: {},
       }
     },
+
     computed: {
       keep() {
         return this.$store.state.keeps.find(k => k.id == this.$route.params.keepId) || {}
@@ -71,7 +72,7 @@
         this.$store.dispatch('addToVault', { payload, keepId })
         keep.keeps++
         this.$store.dispatch("updateAKeep", keep)
-        //finish store 
+        //finish in the store 
       }
     },
     watch: {
@@ -80,6 +81,8 @@
       }
     }
   }
+
+
 </script>
 
 <style>

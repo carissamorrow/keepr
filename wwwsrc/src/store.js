@@ -110,7 +110,7 @@ export default new Vuex.Store({
       api.delete('keep/' + keepData.id)
         .then(res => {
           dispatch('getKeepsByVaultId', keepData.vaultId)
-          router.push({ name: 'vault' })
+          router.push({ name: 'home' })
         })
     },
     deleteVault({ commit, dispatch }, vault) {

@@ -13,7 +13,7 @@
         <h1>All Your Vaults</h1>
       </div>
       <div class="row">
-        <div v-for="vault in vaults" class="card count col-4">
+        <div v-for="vault in vaults" class="card count col-4" v-show="vault.userId == user.id">
           <router-link :to="{name: 'vault', params: {vaultId: vault.id}}">
             <p class="textSpace mt-3">{{vault.name}}</p>
             <p class="textSpace">{{vault.description}}</p>
