@@ -17,7 +17,13 @@
           <router-link :to="{name: 'vault', params: {vaultId: vault.id}}">
             <p class="textSpace mt-3">{{vault.name}}</p>
             <p class="textSpace">{{vault.description}}</p>
+            <img class="image1" src="http://www.hiseedschools.com/images/albums.png">
           </router-link>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <button v-if="vault.userId == user.id" @click="deleteVault(vaultId)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button>
         </div>
       </div>
     </div>
@@ -27,10 +33,11 @@
 <script>
   export default {
     name: 'userDash',
+    props: ['vaultId'],
     data() {
       return {
         vaultData: {},
-
+        vault: [],
         newVault: {
           name: "",
           description: ""
@@ -40,17 +47,28 @@
     computed: {
       vaults() {
         return this.$store.state.vaults
+      },
+      user() {
+        return this.$store.state.user
       }
     },
     methods: {
       addAVault() {
         this.$store.dispatch("addAVault", this.newVault);
         this.newVault = { name: "", description: "" }
-      }
+      },
+      deleteVault() {
+        this.$store.dispatch('deleteVault', this.vault)
+      },
     },
     mounted() {
       if (!this.vaults.length) {
         this.$store.dispatch('getAllVaults', this.vaults)
+      }
+    },
+    watch: {
+      vault() {
+        this.$store.dispatch('getVault', this.vaultId)
       }
     }
   }
@@ -69,5 +87,11 @@
 
   .card {
     height: 40vh;
+    margin-bottom: 30px;
+  }
+
+  .image1 {
+    width: 10vw;
+    height: 20vh
   }
 </style>
