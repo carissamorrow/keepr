@@ -29,7 +29,7 @@
     },
     computed: {
       vaultKeeps() {
-        return this.$store.state.keeps
+        return this.$store.state.vaultKeeps
       }
     },
     methods: {

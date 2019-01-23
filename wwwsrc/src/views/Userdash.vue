@@ -24,6 +24,33 @@
           </div>
         </div>
       </div>
+      <div class="col-12">
+        <form @submit.prevent="addAKeep">
+          <input type="text" v-model="newKeep.name" placeholder="Name: " name="name">
+          <input type="text" v-model="newKeep.img" placeholder="Image: " name="img">
+          <input type="text" v-model="newKeep.description" placeholder="Description: " name="description">
+          <button type="submit">Add A New Keep</button>
+        </form>
+      </div>
+      <div class="col-12 mb-5 mt-3">
+        <h1>All Your Keeps</h1>
+      </div>
+      <div class="row">
+        <div v-for="keep in keeps" class="card count col-4" v-show="keep.userId == user.id">
+          <router-link :to="{name: 'keep', params: {keepId: keep.id}}">
+            <p class="textSpace mt-3">{{keep.name}}</p>
+            <p class="textSpace">{{keep.description}}</p>
+            <img class="image1" :src="keep.img">
+            <p><i class="far fa-eye">{{keeps.views}}</i>
+              <i class="fas fa-share">{{keeps.shares}}</i>
+              <i class="fas fa-shopping-basket">{{keeps.keeps}}</i></p>
+          </router-link>
+          <div class="col-12">
+            <button v-if="keep.userId == user.id" @click="deleteKeep(keep.id)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
@@ -38,7 +65,13 @@
         newVault: {
           name: "",
           description: ""
-        }
+        },
+        newKeep: {
+          name: "",
+          description: "",
+          img: ""
+        },
+        keepData: {},
       }
     },
     computed: {
@@ -50,6 +83,12 @@
       },
       user() {
         return this.$store.state.user
+      },
+      keeps() {
+        return this.$store.state.keeps
+      },
+      keep() {
+        return this.$store.state.keep
       }
     },
     methods: {
@@ -61,8 +100,15 @@
       deleteVault(vault) {
         this.$store.dispatch('deleteVault', vault)
       },
+      deleteKeep(keep) {
+        this.$store.dispatch('deleteKeep', keep)
+      },
       addToVault() {
         this.$store.dispatch("addToVault", this.keep)
+      },
+      addAKeep() {
+        this.$store.dispatch("addAKeep", this.newKeep);
+        this.newKeep = { name: "", img: "", description: "" }
       }
     },
     // mounted() {
@@ -77,7 +123,7 @@
 <style>
   .count {
     margin-top: 5px;
-    column-count: 4;
+    column-count: 3;
   }
 
   .card:hover {
@@ -86,6 +132,7 @@
 
   .card {
     height: 40vh;
+    width: 40vw;
     margin-bottom: 30px;
   }
 
