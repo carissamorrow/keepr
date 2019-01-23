@@ -19,13 +19,13 @@
             <p class="textSpace">{{vault.description}}</p>
             <img class="image1" src="http://www.hiseedschools.com/images/albums.png">
           </router-link>
+          <div class="col-12">
+            <button v-if="vault.userId == user.id" @click="deleteVault(vaultId)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-          <button v-if="vault.userId == user.id" @click="deleteVault(vaultId)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button>
-        </div>
-      </div>
+
+
     </div>
   </div>
 </template>
