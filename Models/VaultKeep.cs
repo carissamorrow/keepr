@@ -13,6 +13,9 @@ namespace keepr.Models
     public int KeepId { get; set; }
     [Required]
     public int VaultId { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public string Img { get; set; }
 
 
   }
