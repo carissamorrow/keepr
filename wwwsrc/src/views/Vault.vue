@@ -9,6 +9,7 @@
           <p><i class="i far fa-eye">{{keep.views}}</i>
             <i class="i fas fa-share">{{keep.shares}}</i>
             <i class="i fas fa-shopping-basket">{{keep.keeps}}</i></p>
+          <button type="remove" class="btn btn-primary btn-lg">Remove Keep from Vault</button>
         </div>
       </div>
     </div>
@@ -46,6 +47,5 @@
   .imgSize {
     width: 15vw;
     height: 20vh;
-
   }
 </style>
