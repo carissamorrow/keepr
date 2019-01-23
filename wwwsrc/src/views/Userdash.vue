@@ -65,11 +65,11 @@
         this.$store.dispatch("addToVault", this.keep)
       }
     },
-    mounted() {
-      if (!this.vaults.length) {
-        this.$store.dispatch('getAllVaults', this.vaults)
-      }
-    }
+    // mounted() {
+    //   if (!this.vaults.length) {
+    //     this.$store.dispatch('getAllVaults')
+    //   }
+    // }
   }
 
 </script>

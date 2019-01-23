@@ -63,13 +63,13 @@
       deleteKeep() {
         this.$store.dispatch('deleteKeep', this.keep)
       },
-      addToVault(keepId, keep) {
+      addToVault(vaultId) {
         let payload = {
           keepId: this.keepId,
-          keepData: this.keep
+          vaultId: vaultId
         }
         console.log(payload)
-        this.$store.dispatch('addToVault', { payload, keepId })
+        this.$store.dispatch('addToVault', payload)
         // keep.keeps++
         // this.$store.dispatch("updateAKeep", keep)
         //finish in the store 

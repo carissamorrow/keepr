@@ -10,9 +10,9 @@ namespace keepr.Models
     public int Id { get; set; }
 
     [Required]
-    public string KeepId { get; set; }
+    public int KeepId { get; set; }
     [Required]
-    public string VaultId { get; set; }
+    public int VaultId { get; set; }
 
 
   }
