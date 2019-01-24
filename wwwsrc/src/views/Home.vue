@@ -9,7 +9,7 @@
       <h1>Welcome To Keepr</h1>
     </div>
     <div class="row">
-      <div v-for="keep in filteredKeeps" class="card count col-4">
+      <div v-for="keep in filteredKeeps" class="card count col-4 banana2">
         <router-link :to="{name: 'keep', params: {keepId: keep.id}}">
           <p class="textSpace mt-3">{{keep.name}}</p>
           <p class="textSpace">{{keep.description}}</p>
@@ -90,7 +90,14 @@
 
   .class1 {
     margin-top: 10px;
-    border-color: blue;
+    border-color: darkslateblue;
     border-top-left-radius: 30;
+  }
+
+  .banana2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    border-color: grey;
+    border-top-left-radius: 10;
   }
 </style>
