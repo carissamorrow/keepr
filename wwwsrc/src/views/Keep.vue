@@ -71,7 +71,7 @@
           vaultId: vaultId
         }
         console.log(payload)
-        // this.$store.dispatch('addToVault', payload)
+        this.$store.dispatch('addToVault', payload)
         // this.$store.dispatch("updateAKeep")
       },
 
