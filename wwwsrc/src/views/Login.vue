@@ -48,10 +48,12 @@
 </script>
 <style>
     .imgFront {
-        width: 100%;
+        width: 100vw;
+        height: 100vh;
         background-repeat: no-repeat;
         background-size: cover;
-        position: relative;
-
+        margin-top: 80px;
+        padding: 1px;
+        border: 1px solid #021a40;
     }
 </style>
