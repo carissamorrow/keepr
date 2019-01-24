@@ -6,7 +6,7 @@
         <p class="textSpace mt-3">{{keep.name}}</p>
         <p class="textSpace">{{keep.description}}</p>
         <img class="imgSize mb-2" :src="keep.img">
-        <p><i class="i far fa-eye">{{keep.views}}</i>
+        <p><i class="i far fa-eye">{{keep.views+1}}</i>
           <i class="i fas fa-share">{{keep.shares}}</i>
           <i class="i fas fa-shopping-basket">{{keep.keeps}}</i></p>
       </div>
@@ -47,10 +47,12 @@
       keep() {
         return this.$store.state.keeps.find(k => k.id == this.$route.params.keepId) || {}
         // thanks for your help on this one Mark 
-        // if (keep) {
-        //   keep.views++
-        //   this.$store.dispatch("updateAKeep", keep)
-        // }
+        if (keep) {
+          keep.views++
+          // keep.keeps++
+          // keep.shares++
+          this.$store.dispatch("updateAKeep", keep)
+        }
       },
       vaults() {
         return this.$store.state.vaults
@@ -70,8 +72,7 @@
         }
         console.log(payload)
         // this.$store.dispatch('addToVault', payload)
-        // keep.keeps++
-        // this.$store.dispatch("updateAKeep", keep)
+        // this.$store.dispatch("updateAKeep")
       },
 
     },

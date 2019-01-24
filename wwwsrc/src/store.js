@@ -93,17 +93,17 @@ export default new Vuex.Store({
           dispatch('getAllVaults')
         })
     },
-    publicKeep({ dispatch }, keep) {
-      api.put('keep/', keep)
-        .then(res => {
-          dispatch('getAllKeeps')
-        })
-    },
+    // publicKeep({ dispatch }, keep) {
+    //   api.put('keep/', keep)
+    //     .then(res => {
+    //       dispatch('getAllKeeps')
+    //     })
+    // },
 
-    updateAKeep({ commit, dispatch }, keep) {
-      api.put('keep/', keep)
+    updateAKeep({ commit, dispatch }, payload) {
+      api.put('keep/', payload)
         .then(res => {
-          router.push({ name: "keep" })
+          dispatch("getAllKeeps")
         })
     },
 
@@ -144,7 +144,12 @@ export default new Vuex.Store({
           commit('setVaults', res.data)
         })
     },
-
+    // deleteAVaultKeep({ commit, dispatch }, payload) {
+    //   api.delete('vaultkeeps/' + payload.vaultId + '/' + payload.keepId)
+    //     .then(res => {
+    //       dispatch("setKeepsByVaultId", payload.vaultId)
+    //     })
+    // },
 
     register({ commit, dispatch }, newUser) {
       auth.post('register', newUser)

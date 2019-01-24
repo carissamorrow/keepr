@@ -9,7 +9,8 @@
           <i class="i fas fa-share">{{keep.shares}}</i>
           <i class="i fas fa-shopping-basket">{{keep.keeps}}</i></p>
         <div class="col-12">
-          <!-- <button @click="deleteKeep(keep.id)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button> -->
+          <!-- <button @click="deleteAVaultKeep(vault.id, keep.id)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button> -->
+          <!-- delete by keep ID and vault ID so it only takes out of the vault -->
         </div>
       </div>
     </div>
@@ -33,12 +34,21 @@
       vaultKeeps() {
         return this.$store.state.vaultKeeps
       },
+      user() {
+        return this.$store.state.user
+      }
 
     },
     methods: {
-      // deleteKeep(keep) {
-      //   this.$store.dispatch('deleteKeep', keep)
-      // },
+      // deleteAVaultKeep(vaultId, keepId) {
+      //   let payload = {
+      //     vaultId: vaultId,
+      //     keepId: keepId,
+      //     userId: this.$store.state.user.id
+      //   }
+      //   this.$store.dispatch("deleteAVaultKeep", payload)
+      // }
+      //},
 
     }
   }

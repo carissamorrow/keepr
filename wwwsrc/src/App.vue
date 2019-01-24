@@ -48,6 +48,7 @@
       login() {
         this.$store.dispatch("login")
       },
+
     }
   }
 </script>
