@@ -123,21 +123,10 @@
 <style>
   .count {
     margin-top: 5px;
-    column-count: 3;
+    column-count: 4;
   }
 
   .card:hover {
     transform: scale(1.1);
-  }
-
-  .card {
-    height: 40vh;
-    width: 40vw;
-    margin-bottom: 30px;
-  }
-
-  .image1 {
-    width: 10vw;
-    height: 20vh
   }
 </style>
