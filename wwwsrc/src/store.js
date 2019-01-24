@@ -144,12 +144,13 @@ export default new Vuex.Store({
           commit('setVaults', res.data)
         })
     },
-    // deleteAVaultKeep({ commit, dispatch }, payload) {
-    //   api.delete('vaultkeeps/' + payload.vaultId + '/' + payload.keepId)
-    //     .then(res => {
-    //       dispatch("setKeepsByVaultId", payload.vaultId)
-    //     })
-    // },
+    deleteAVaultKeep({ commit, dispatch }, payload) {
+      debugger
+      api.delete('vaultkeeps/keepId/vaultId')
+        .then(res => {
+          dispatch("setKeepsByVaultId", payload)
+        })
+    },
 
     register({ commit, dispatch }, newUser) {
       auth.post('register', newUser)

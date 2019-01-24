@@ -34,5 +34,18 @@ namespace keepr.Controllers
       return Created("/api/vaultkeep/" + result.Id, result);
     }
 
+    //vaultKeeps/:vaultId/:keepId, THANKS MARK!
+    [HttpDelete("{vaultId}/{keepId}")]
+    public ActionResult<string> Delete(int vaultId, int keepId)
+    {
+      var userId = HttpContext.User.Identity.Name;
+
+      if (_repo.DeleteKeepByVaultId(vaultId, keepId, userId))
+      {
+        return Ok("Successfully deleted");
+      }
+      return BadRequest("Unable to delete");
+    }
+
   }
 }
