@@ -25,11 +25,6 @@
     mounted() {
       this.$store.dispatch("getKeepsByVaultId", this.vaultId)
     },
-    data() {
-      return {
-
-      }
-    },
     computed: {
       vaultKeeps() {
         return this.$store.state.vaultKeeps

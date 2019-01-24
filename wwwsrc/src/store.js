@@ -51,6 +51,9 @@ export default new Vuex.Store({
     setActiveVault(state, activeVault) {
       state.activeVault = activeVault
     },
+    setAllVaultKeeps(state, vault) {
+      state.vaultKeeps = vault
+    }
   },
 
   actions: {
@@ -144,11 +147,17 @@ export default new Vuex.Store({
           commit('setVaults', res.data)
         })
     },
-    deleteAVaultKeep({ commit, dispatch }, payload) {
-      debugger
-      api.delete('vaultkeeps/keepId/vaultId')
+    getAllKeepsByVaultId({ commit, dispatch }, payload) {
+      api.get('vaultkeeps/' + payload.vaultId)
         .then(res => {
-          dispatch("setKeepsByVaultId", payload)
+          commit('setAllVaultKeeps', res.data)
+        })
+    },
+
+    deleteAVaultKeep({ commit, dispatch }, payload) {
+      api.delete('vaultkeeps/' + payload.vaultId + "/" + payload.keepId)
+        .then(res => {
+          dispatch("getAllKeepsByVaultId", payload)
         })
     },
 
