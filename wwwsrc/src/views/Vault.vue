@@ -9,7 +9,7 @@
           <i class="i fas fa-share">{{keep.shares}}</i>
           <i class="i fas fa-shopping-basket">{{keep.keeps}}</i></p>
         <div class="col-12">
-          <!-- <button @click="removeKeepFromVault(vault.id, keep.id)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button> -->
+          <!-- <button @click="deleteKeep(keep.id)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button> -->
         </div>
       </div>
     </div>
@@ -20,6 +20,7 @@
   export default {
     name: 'vaultKeep',
     props: ["vaultId"],
+
     mounted() {
       this.$store.dispatch("getKeepsByVaultId", this.vaultId)
     },
@@ -31,9 +32,14 @@
     computed: {
       vaultKeeps() {
         return this.$store.state.vaultKeeps
-      }
+      },
+
     },
     methods: {
+      // deleteKeep(keep) {
+      //   this.$store.dispatch('deleteKeep', keep)
+      // },
+
     }
   }
 

@@ -24,7 +24,7 @@
       <div class="dropdown">
         <div class="dropdown-menu">
           <div class="dropdown-item" aria-labelledby="mLabel" v-for="vault in vaults" :key="vault.id">
-            <p @click="addToVault(vault.id)">{{vault.name}}</p>
+            <p @click="addToVault(vault.id)" v-show="vault.userId == user.id">{{vault.name}}</p>
           </div>
         </div>
       </div>

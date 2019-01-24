@@ -111,7 +111,7 @@ export default new Vuex.Store({
     getKeepsByVaultId({ commit, dispatch }, vaultId) {
       api.get("vaultkeeps/" + vaultId)
         .then(res => {
-          console.log('Keep by Vault', res.data)
+          console.log(res)
           commit('setKeepsByVaultId', res.data)
         })
     },
