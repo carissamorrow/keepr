@@ -2,7 +2,7 @@
   <div class="home container-fluid">
 
     <div class="col-12">
-      <input type="text" v-model="search" class="form-control" placeholder="Search Keeps" />
+      <input type="text" v-model="search" class="form-control class1" placeholder="Search Keeps" />
       <li v-show="'search'.includes(filteredKeeps)"></li>
     </div>
     <div class="col-12 mb-5 mt-3 banana">
@@ -85,6 +85,12 @@
 
   .banana {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: bold
+    font-weight: bold;
+  }
+
+  .class1 {
+    margin-top: 10px;
+    border-color: blue;
+    border-top-left-radius: 30;
   }
 </style>
