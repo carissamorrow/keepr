@@ -1,6 +1,6 @@
 <template>
   <div class="vault container">
-    <h1 class="mgBottom">Welcome {{user.username}}...You look lovely today</h1>
+    <h1 class="mgBottom">Welcome {{user.username}}...You Look Lovely Today</h1>
     <div class="row">
       <div class="col-12">
         <form @submit.prevent="addAVault">

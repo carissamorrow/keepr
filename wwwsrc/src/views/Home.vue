@@ -5,8 +5,8 @@
       <input type="text" v-model="search" class="form-control" placeholder="Search Keeps" />
       <li v-show="'search'.includes(filteredKeeps)"></li>
     </div>
-    <div class="col-12 mb-5 mt-3">
-      <h1>All Keeps Page</h1>
+    <div class="col-12 mb-5 mt-3 banana">
+      <h1>Welcome To Keepr</h1>
     </div>
     <div class="row">
       <div v-for="keep in filteredKeeps" class="card count col-4">
@@ -81,5 +81,10 @@
 
   .i {
     width: 40px
+  }
+
+  .banana {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold
   }
 </style>
