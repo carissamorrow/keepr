@@ -56,4 +56,9 @@
         padding: 1px;
         border: 1px solid #021a40;
     }
+
+    .login {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
 </style>
