@@ -1,6 +1,6 @@
 <template>
   <div class="vault container">
-    <h1 class="mgBottom">Welcome {{user.username}}...You Look Lovely Today</h1>
+    <h1 class="mgBottom mb-3 mt-3">Welcome {{user.username}}...You Look Lovely Today</h1>
     <div class="row">
       <div class="col-12">
         <form @submit.prevent="addAVault">
@@ -9,7 +9,7 @@
           <button type="submit">Add A New Vault</button>
         </form>
       </div>
-      <div class="col-12 mb-5 mt-3">
+      <div class="col-12 mb-5 mt-4 mgBottom">
         <h1>All Your Vaults</h1>
       </div>
     </div>
@@ -41,7 +41,7 @@
 
     <!-- </div> -->
 
-    <div class="col-12 mb-5 mt-3">
+    <div class="col-12 mb-5 mt-3 mgBottom">
       <h1>All Your Keeps</h1>
     </div>
     <div class="row">
@@ -133,6 +133,9 @@
     margin-top: 5px;
     column-count: 4;
     margin-bottom: 25px;
+    border-color: grey;
+    border-top-left-radius: 10;
+
   }
 
   .card:hover {
@@ -145,5 +148,10 @@
 
   .i {
     width: 40px
+  }
+
+  .mgBottom {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
   }
 </style>
