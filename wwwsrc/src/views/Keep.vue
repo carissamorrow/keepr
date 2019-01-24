@@ -69,11 +69,11 @@
           vaultId: vaultId
         }
         console.log(payload)
-        this.$store.dispatch('addToVault', payload)
+        // this.$store.dispatch('addToVault', payload)
         // keep.keeps++
         // this.$store.dispatch("updateAKeep", keep)
-        //finish in the store 
-      }
+      },
+
     },
     watch: {
       keep() {

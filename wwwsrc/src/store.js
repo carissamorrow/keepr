@@ -93,9 +93,18 @@ export default new Vuex.Store({
           dispatch('getAllVaults')
         })
     },
+    publicKeep({ dispatch }, keep) {
+      api.put('keep/', keep)
+        .then(res => {
+          dispatch('getAllKeeps')
+        })
+    },
 
-    updateAKeep({ commit, dispatch }) {
-      //finish this to update keeps
+    updateAKeep({ commit, dispatch }, keep) {
+      api.put('keep/', keep)
+        .then(res => {
+          router.push({ name: "keep" })
+        })
     },
 
     //get keep by Vault ID
