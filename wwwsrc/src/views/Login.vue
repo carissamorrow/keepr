@@ -15,6 +15,7 @@
             <p v-if="loginForm">No account Click to Register</p>
             <p v-else>Already have an account click to Login</p>
         </div>
+        <img src="../assets/Mosaic_10.jpg" class="col-12 imgFront">
     </div>
 </template>
 
@@ -45,3 +46,12 @@
         }
     };
 </script>
+<style>
+    .imgFront {
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+
+    }
+</style>
