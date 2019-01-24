@@ -124,6 +124,7 @@
   .count {
     margin-top: 5px;
     column-count: 4;
+    margin-bottom: 25px;
   }
 
   .card:hover {
