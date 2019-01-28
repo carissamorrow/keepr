@@ -50,9 +50,9 @@
           <p class="textSpace mt-3">{{keep.name}}</p>
           <p class="textSpace">{{keep.description}}</p>
           <img class="image1" :src="keep.img">
-          <p><i class="i far fa-eye">{{keeps.views}}</i>
+          <!-- <p><i class="i far fa-eye">{{keeps.views}}</i>
             <i class="i fas fa-share">{{keeps.shares}}</i>
-            <i class="i fas fa-shopping-basket">{{keeps.keeps}}</i></p>
+            <i class="i fas fa-shopping-basket">{{keeps.keeps}}</i></p> -->
         </router-link>
         <div class="col-12">
           <button v-if="keep.userId == user.id" @click="deleteKeep(keep.id)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button>

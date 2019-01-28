@@ -6,9 +6,9 @@
         <p class="textSpace mt-3">{{keep.name}}</p>
         <p class="textSpace">{{keep.description}}</p>
         <img class="imgSize mb-2" :src="keep.img">
-        <p><i class="i far fa-eye">{{keep.views+1}}</i>
+        <!-- <p><i class="i far fa-eye">{{keep.views+1}}</i>
           <i class="i fas fa-share">{{keep.shares}}</i>
-          <i class="i fas fa-shopping-basket">{{keep.keeps}}</i></p>
+          <i class="i fas fa-shopping-basket">{{keep.keeps}}</i></p> -->
       </div>
     </div>
     <div class="row">

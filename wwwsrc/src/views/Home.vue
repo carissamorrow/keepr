@@ -14,12 +14,12 @@
           <p class="textSpace mt-3">{{keep.name}}</p>
           <p class="textSpace">{{keep.description}}</p>
           <img class="imgSize mb-2" :src="keep.img">
-          <p><i class="i far fa-eye">{{keeps.views}}</i>
+          <!-- <p><i class="i far fa-eye">{{keeps.views}}</i>
             <i class="i fas fa-share">{{keeps.shares}}</i>
-            <i class="i fas fa-shopping-basket">{{keeps.keeps}}</i></p>
-          <button type="button" class="btn btn-primary btn-sm">Keep</button>
+            <i class="i fas fa-shopping-basket">{{keeps.keeps}}</i></p> -->
+          <!-- <button type="button" class="btn btn-primary btn-sm">Keep</button>
           <button type="button" @click="" class="btn btn-primary btn-sm">Watch</button>
-          <button type="button" class="btn btn-primary btn-sm">Share</button>
+          <button type="button" class="btn btn-primary btn-sm">Share</button> -->
         </router-link>
       </div>
     </div>

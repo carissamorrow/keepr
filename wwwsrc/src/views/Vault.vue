@@ -5,9 +5,9 @@
         <p class="textSpace mt-3">{{keep.name}}</p>
         <p class="textSpace">{{keep.description}}</p>
         <img class="image1 mb-2" :src="keep.img">
-        <p><i class="i far fa-eye">{{keep.views}}</i>
+        <!-- <p><i class="i far fa-eye">{{keep.views}}</i>
           <i class="i fas fa-share">{{keep.shares}}</i>
-          <i class="i fas fa-shopping-basket">{{keep.keeps}}</i></p>
+          <i class="i fas fa-shopping-basket">{{keep.keeps}}</i></p> -->
         <div class="col-12">
           <button @click="deleteAVaultKeep(keep.id)" class="btn btn-lg icon mx-2"><i class="far fa-trash-alt "></i></button>
           <!-- delete by keep ID and vault ID so it only takes out of the vault -->
